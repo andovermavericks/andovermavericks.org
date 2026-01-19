@@ -147,6 +147,7 @@
   align-items: center;
   margin: 28px 0;
   min-height: 85vh;
+justify-content: space-between;
 
   background:
     radial-gradient(
@@ -160,6 +161,10 @@
   background-size: 60%;
   background-position: right center;
 }
+    .hero > aside{
+  justify-self: end;
+}
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
@@ -609,6 +614,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 </script>
 </body>
 </html>
+
 
 
 
