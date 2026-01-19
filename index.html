@@ -117,6 +117,33 @@
 .acc-panel-inner p { color: var(--muted); }
 
 .acc-item.open .acc-panel { /* max-height set by JS for smooth animation */ }
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  height: 42px;
+  width: auto;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-logo-bg {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 420px;
+  height: 420px;
+  background: url("bull-head.jpg") no-repeat center / contain;
+  opacity: 0.08;
+  pointer-events: none;
+}
 
 
   </style>
@@ -124,15 +151,18 @@
 <body>
   <div class="container">
     <header>
-      <div class="brand">
-        <div class="logo" style="padding:0;background:none">
-          <img src="maverickslogo.jpg" alt="Mavericks Logo" style="width:48px;height:48px;object-fit:contain;display:block;" />
-        </div>
-        <div>
-          <div style="font-weight:800">Andover Mavericks</div>
-          <div style="font-size:12px;color:var(--muted)">Ultimate Frisbee</div>
-        </div>
-      </div>
+  <div class="brand">
+  <img
+    src="bull-head.jpg"
+    alt="Andover Mavericks Bull Logo"
+    class="brand-logo"
+  />
+  <div>
+    <strong>Andover Mavericks</strong>
+    <span>Ultimate Frisbee</span>
+  </div>
+</div>
+
 <nav aria-label="Main navigation">
   <a class="navlink" href="#home">Home</a>
   <a class="navlink" href="#schedule">Schedule</a>
@@ -148,6 +178,7 @@
 
     <main id="home">
       <section class="hero">
+<div class="hero-logo-bg"></div>
         <div class="hero-card">
           <h1>Dominate the field. Have fun. Build together.</h1>
           <p class="lead"> The Andover Mavericks are a competitive, spirited team from the North Suburban Conference. They are currently ranked 21st in the nation, and recently brought home their first conference championship</p>
@@ -557,6 +588,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 </script>
 </body>
 </html>
+
 
 
 
