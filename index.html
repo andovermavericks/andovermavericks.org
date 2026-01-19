@@ -86,6 +86,39 @@
     .form-row input, textarea, .form-row select{flex:1;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.05);color:inherit}
     button.primary{background:var(--primary);border:none;padding:10px 12px;border-radius:8px;color:white;font-weight:700}
 
+    /* Accordion */
+.accordion { margin-top: 12px; display: grid; gap: 10px; }
+.acc-item { border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
+.acc-btn {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: #e6eef6;
+  padding: 14px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 16px;
+}
+.acc-btn:hover { background: rgba(255,255,255,0.03); }
+.acc-btn:focus { outline: 2px solid rgba(255,255,255,0.12); outline-offset: -2px; }
+.acc-meta { color: var(--muted); font-weight: 600; font-size: 13px; margin-left: 10px; }
+.acc-icon { color: var(--accent); font-weight: 900; font-size: 18px; min-width: 22px; text-align: right; }
+
+.acc-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 220ms ease;
+}
+.acc-panel-inner { padding: 0 14px 14px; color: #ffffff; }
+.acc-panel-inner p, .acc-panel-inner li { color: #ffffff; }
+.acc-panel-inner p { color: var(--muted); }
+
+.acc-item.open .acc-panel { /* max-height set by JS for smooth animation */ }
+
+
   </style>
 </head>
 <body>
@@ -186,135 +219,237 @@
         </form>
       </section>
 <section id="new-families" class="card" style="margin-top:18px">
-  <h3>New Families & Program Overview</h3>
-  <p style="color:var(--muted);margin-top:0">
-    Welcome to Andover Mavericks Ultimate! We are a high school Ultimate Frisbee program
-    competing in the Minnesota Ultimate High School Spring League. This section provides
-    new families with a clear overview of how the season works and what to expect.
-  </p>
+<div class="accordion" id="newFamiliesAccordion">
 
-  <h4>Season at a Glance</h4>
-  <ul>
-    <li><strong>Season runs:</strong> TBD (typically early March – early June)</li>
-    <li><strong>Official practices begin:</strong> TBD</li>
-    <li><strong>Games begin:</strong> TBD</li>
-    <li><strong>League:</strong> Minnesota Ultimate (MNU) High School Spring League</li>
-    <li><strong>Home practice field:</strong> Heritage Oaks Park, Ham Lake</li>
-  </ul>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Season at a Glance <span class="acc-meta">Dates • rhythm • location</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <ul>
+          <li><strong>Season runs:</strong> TBD (typically early March – early June)</li>
+          <li><strong>Official practices start:</strong> TBD</li>
+          <li><strong>Games begin:</strong> TBD</li>
+          <li><strong>Weekly rhythm:</strong> Practices Mondays & Fridays • Games Thursday evenings (Open teams)</li>
+          <li><strong>Home practice field:</strong> Heritage Oaks Park, Ham Lake</li>
+          <li><strong>League:</strong> Minnesota Ultimate (MNU) High School Spring League</li>
+        </ul>
+        <p>We also participate in local tournaments, team events, and fundraisers throughout the season.</p>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    Weekly rhythm includes practices on Mondays and Fridays, with games on Thursday evenings
-    for Open teams. We also participate in local tournaments, team events, and fundraisers
-    throughout the season.
-  </p>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Teams <span class="acc-meta">Varsity • JV • Girls</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <ul>
+          <li><strong>Open Varsity</strong></li>
+          <li><strong>Open JV</strong></li>
+          <li><strong>Girls’ Team</strong> (dependent on registration numbers; if numbers are low, girls play on the Open team)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <h4>Teams</h4>
-  <ul>
-    <li>Open Varsity</li>
-    <li>Open JV</li>
-    <li>Girls’ Team (dependent on registration numbers; if numbers are low, girls play on the Open team)</li>
-  </ul>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Varsity Tryouts <span class="acc-meta">How it works</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <p><strong>Held during regular practice times</strong> (TBD dates).</p>
+        <ul>
+          <li>Players not trying out still attend practice.</li>
+          <li>Rosters are announced before the first week of games.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <h4>Varsity Tryouts</h4>
-  <p>
-    Varsity tryouts are held during regular practice times (TBD dates).
-    Players not trying out still attend practice.
-    Rosters are announced before the first week of games.
-  </p>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Practice Schedule <span class="acc-meta">Outdoor • indoor • absences</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <p><strong>Outdoor Practices – Heritage Oaks Park</strong></p>
+        <ul>
+          <li><strong>Days:</strong> Mondays & Fridays</li>
+          <li><strong>March (TBD):</strong> 5:00–7:00 PM</li>
+          <li><strong>April–May (TBD):</strong> 6:00–8:00 PM</li>
+          <li><strong>Bring:</strong> cleats, water, layers for Minnesota spring weather</li>
+        </ul>
 
-  <h4>Practice Schedule</h4>
-  <p><strong>Outdoor Practices – Heritage Oaks Park</strong></p>
-  <ul>
-    <li><strong>Days:</strong> Mondays & Fridays</li>
-    <li><strong>March (TBD):</strong> 5:00–7:00 PM</li>
-    <li><strong>April–May (TBD):</strong> 6:00–8:00 PM</li>
-    <li><strong>Bring:</strong> Cleats, water, layers for Minnesota spring weather</li>
-  </ul>
+        <p><strong>Indoor Practices</strong></p>
+        <ul>
+          <li>A few sessions may be scheduled at a local gym (TBD dates, usually late March)</li>
+          <li>Typical time: 6:30–8:30 PM</li>
+        </ul>
 
-  <p><strong>Indoor Practices</strong></p>
-  <ul>
-    <li>Occasional sessions at a local gym (TBD, typically late March)</li>
-    <li>Typical time: 6:30–8:30 PM</li>
-  </ul>
+        <p><strong>Practice Absences</strong></p>
+        <p>Communicate absences directly through the GameChanger app.</p>
+      </div>
+    </div>
+  </div>
 
-  <h4>Practice Absences</h4>
-  <p>
-    Practice absences should be communicated directly through the GameChanger app.
-  </p>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Games & Game-Day Protocol <span class="acc-meta">Arrival • gear • parent guidelines</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <ul>
+          <li><strong>Games start:</strong> TBD</li>
+          <li><strong>Open team games:</strong> Thursdays at 6:00 PM</li>
+          <li><strong>Arrival time:</strong> 5:00 PM for warm-ups</li>
+          <li><strong>Girls’ team schedule:</strong> varies depending on league placement (TBD)</li>
+        </ul>
 
-  <h4>Game Schedule & Game-Day Protocol</h4>
-  <ul>
-    <li><strong>Games start:</strong> TBD</li>
-    <li><strong>Open team games:</strong> Thursdays at 6:00 PM (arrival at 5:00 PM)</li>
-    <li><strong>Girls’ team schedule:</strong> Varies depending on league placement (TBD)</li>
-  </ul>
+        <p><strong>For Players</strong></p>
+        <ul>
+          <li>Arrive 1 hour before game time</li>
+          <li>Bring: dark jersey, light jersey, cleats, water</li>
+          <li>Practice like you play</li>
+        </ul>
 
-  <p><strong>For Players:</strong></p>
-  <ul>
-    <li>Arrive 1 hour before game time</li>
-    <li>Bring dark jersey, light jersey, cleats, and water</li>
-    <li>Practice like you play</li>
-  </ul>
+        <p><strong>For Parents</strong></p>
+        <ul>
+          <li>Cheer positively</li>
+          <li>Avoid playing time concerns during or immediately after games</li>
+          <li>Avoid on-field calls or disputes</li>
+          <li>Model “Spirit of the Game”</li>
+        </ul>
 
-  <p><strong>For Parents:</strong></p>
-  <ul>
-    <li>Cheer positively</li>
-    <li>Avoid discussing playing time during or immediately after games</li>
-    <li>Avoid on-field calls or disputes</li>
-    <li>Model “Spirit of the Game”</li>
-  </ul>
+        <p>Any schedule updates will appear in GameChanger.</p>
+      </div>
+    </div>
+  </div>
 
-  <h4>Tournaments & Team Events</h4>
-  <ul>
-    <li>All-Team Clinic – TBD</li>
-    <li>Tournament #1 – TBD</li>
-    <li>Tournament #2 – TBD</li>
-    <li>State Tournament – TBD</li>
-    <li>Multiple fundraisers throughout the spring</li>
-  </ul>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Tournaments & Team Events <span class="acc-meta">Typical season</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <ul>
+          <li>All-Team Clinic – TBD</li>
+          <li>Tournament #1 – TBD</li>
+          <li>Tournament #2 – TBD</li>
+          <li>State Tournament – TBD</li>
+          <li>Multiple fundraisers throughout the spring</li>
+        </ul>
+        <p>Tournament details are posted in GameChanger when finalized.</p>
+      </div>
+    </div>
+  </div>
 
-  <h4>Registration – Two Required Steps</h4>
-  <ol>
-    <li>
-      <strong>Mavericks Registration:</strong> Complete the Mavericks registration form,
-      submit down-payment or full season fee, and complete the season logistics survey (TBD deadlines).
-    </li>
-    <li>
-      <strong>Minnesota Ultimate (MNU) Registration – $60:</strong>
-      Register using the link provided by the Mavericks and complete all waivers
-      before attending gameplay practices.
-    </li>
-  </ol>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Registration (Two Required Steps) <span class="acc-meta">Mavericks + MNU</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <p><strong>Players must register with both the Mavericks program and Minnesota Ultimate (MNU).</strong></p>
 
-  <h4>What Do Team Fees Cover?</h4>
-  <ul>
-    <li>MNU team registration</li>
-    <li>Tournament bid fees</li>
-    <li>Equipment (discs, cones, pinnies, first-aid kits)</li>
-    <li>Player jersey</li>
-    <li>Coaching stipends</li>
-    <li>Indoor facility rentals</li>
-    <li>End-of-season celebration</li>
-  </ul>
+        <p><strong>1) Mavericks Registration</strong></p>
+        <ul>
+          <li>Mavericks registration form – Due TBD</li>
+          <li>Down-payment or full season fee submitted to the team treasurer</li>
+          <li>Season logistics survey (tournament availability, varsity interest, etc.)</li>
+          <li>Payment options and deadlines will be provided each season</li>
+        </ul>
 
-  <h4>Scholarships & Financial Aid</h4>
-  <p>
-    We want every interested athlete to be able to play.
-    For Mavericks fee assistance, email
-    <a class="navlink" href="mailto:andovermavericks@gmail.com">andovermavericks@gmail.com</a>.
-    Minnesota Ultimate also offers financial aid for league memberships.
-  </p>
+        <p><strong>2) Minnesota Ultimate (MNU) Registration – $60</strong></p>
+        <ul>
+          <li>Follow the registration link emailed by the Mavericks</li>
+          <li>Boys: Select Andover (Open) → Open Division</li>
+          <li>Girls: Register based on team placement once confirmed</li>
+          <li>Sign all waivers</li>
+          <li>Complete before attending practices that involve gameplay</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <h4>Communication & Updates</h4>
-  <p>
-    All schedules, updates, and announcements are shared through the GameChanger app.
-    Download here:
-    <a class="navlink" href="https://gc.com/download" target="_blank" rel="noopener">gc.com/download</a>
-  </p>
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Fees, Fundraising & Financial Aid <span class="acc-meta">What’s included • credits • scholarships</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <p><strong>What do team fees cover?</strong></p>
+        <ul>
+          <li>MNU team registration</li>
+          <li>Tournament bid fees</li>
+          <li>Equipment (discs, cones, pinnies, first-aid kits)</li>
+          <li>Player jersey</li>
+          <li>Coaching stipends</li>
+          <li>Indoor facility rentals</li>
+          <li>End-of-season celebration</li>
+        </ul>
 
-  <p>
-    Parents and players must join the team in GameChanger to stay informed.
-  </p>
+        <p><strong>Fee schedule & fundraising credits (typical year)</strong></p>
+        <ul>
+          <li>Payment #1: Team Registration Fee – Due TBD</li>
+          <li>Payment #2: $60 MNU Player Fee – Due TBD</li>
+          <li>Payment #3: Remaining balance (max ~$150) – Due TBD</li>
+        </ul>
+
+        <p><strong>Impact Card Fundraising</strong></p>
+        <ul>
+          <li>$20 off dues per 10 cards sold</li>
+          <li>$50 off dues per 20 cards sold</li>
+          <li>Additional cards can be checked out from coaches at practice</li>
+        </ul>
+
+        <p><strong>Scholarships & Financial Aid</strong></p>
+        <p>
+          We want every interested athlete to be able to play. For Mavericks fee assistance, email
+          <a class="navlink" href="mailto:andovermavericks@gmail.com">andovermavericks@gmail.com</a>.
+          MNU also offers financial aid for league memberships (application link released each season).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="acc-item">
+    <button class="acc-btn" type="button">
+      <span>Communication & Updates <span class="acc-meta">GameChanger</span></span>
+      <span class="acc-icon">+</span>
+    </button>
+    <div class="acc-panel">
+      <div class="acc-panel-inner">
+        <p>All schedules, changes, messages, and announcements will be shared in the GameChanger app.</p>
+        <p>
+          Download: <a class="navlink" href="https://gc.com/download" target="_blank" rel="noopener noreferrer">gc.com/download</a>
+        </p>
+        <ul>
+          <li>Practice & game schedules</li>
+          <li>Real-time updates</li>
+          <li>Attendance tracking</li>
+          <li>Messaging for parents & players</li>
+          <li>Roster information</li>
+          <li>Weather notifications</li>
+        </ul>
+        <p>Parents and players must join the team in GameChanger to stay informed.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 </section>
 
       <div class="modal" id="modal">
@@ -392,8 +527,36 @@
     widgetId: "9f6a5098-0c3c-4f31-8119-e507830efbf8",
     maxVerticalGamesVisible: 4,
   })
+  // Accordion behavior (New Families)
+document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
+  const btn = item.querySelector('.acc-btn');
+  const panel = item.querySelector('.acc-panel');
+  const icon = item.querySelector('.acc-icon');
+
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    // close all
+    document.querySelectorAll('#newFamiliesAccordion .acc-item.open').forEach((openItem) => {
+      openItem.classList.remove('open');
+      const openPanel = openItem.querySelector('.acc-panel');
+      const openIcon = openItem.querySelector('.acc-icon');
+      openPanel.style.maxHeight = '0px';
+      if (openIcon) openIcon.textContent = '+';
+    });
+
+    // open clicked (if it wasn't already)
+    if (!isOpen) {
+      item.classList.add('open');
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      if (icon) icon.textContent = '–';
+    }
+  });
+});
+
 </script>
 </body>
 </html>
+
 
 
