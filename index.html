@@ -34,6 +34,19 @@
       padding-bottom:40px;
     }
     .container{max-width:var(--max);margin:0 auto;padding:24px}
+.hero {
+  position: relative;
+  background: radial-gradient(
+      circle at right,
+      rgba(0,0,0,0.4),
+      rgba(0,0,0,0.9)
+    ),
+    url("/assets/bull-head.png");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: right center;
+  min-height: 85vh;
+}
 
     /* header */
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
@@ -593,6 +606,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 </script>
 </body>
 </html>
+
 
 
 
