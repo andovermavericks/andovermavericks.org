@@ -49,6 +49,7 @@
 }
 @media (max-width: 900px) {
   .hero {
+    grid-template-columns: 1fr;
     background-size: 90%;
     background-position: center bottom;
   }
@@ -64,8 +65,8 @@
     .cta{background:var(--accent);color:#0b1220;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
 
     /* hero */
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin:28px 0}
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    {display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin:28px 0}
+    -card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
     h1{font-size:clamp(28px,4.5vw,40px);margin:0 0 8px}
     p.lead{color:var(--muted);margin-top:0}
     .stats{display:flex;gap:12px;margin-top:18px}
@@ -89,7 +90,7 @@
 
     /* responsive */
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
+      {grid-template-columns:1fr}
       .gallery{grid-template-columns:repeat(2,1fr)}
       nav{display:none}
       .mobile-nav{display:flex}
@@ -148,25 +149,31 @@
 }
 
 .brand-logo {
-  height: 42px;
+  height: 56px;
   width: auto;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
-}
-.hero {
-  position: relative;
-  overflow: hidden;
+  filter: drop-shadow(0 3px 10px rgba(0,0,0,0.6));
 }
 
-.hero-logo-bg {
-  position: absolute;
-  right: -80px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 420px;
-  height: 420px;
-  background: url("bull-head.jpg") no-repeat center / contain;
-  opacity: 0.08;
-  pointer-events: none;
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: center;
+  margin: 28px 0;
+  min-height: 85vh;
+
+  background:
+    radial-gradient(
+      circle at 70% 50%,
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.9)
+    ),
+    url("/assets/bull-head.png");
+
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: right center;
 }
 
 
@@ -177,7 +184,7 @@
     <header>
   <div class="brand">
   <img
-    src="bull-head.jpg"
+    src="bull-head.png"
     alt="Andover Mavericks Bull Logo"
     class="brand-logo"
   />
@@ -202,7 +209,7 @@
 
     <main id="home">
       <section class="hero">
-<div class="hero-logo-bg"></div>
+
         <div class="hero-card">
           <h1>Dominate the field. Have fun. Build together.</h1>
           <p class="lead"> The Andover Mavericks are a competitive, spirited team from the North Suburban Conference. They are currently ranked 21st in the nation, and recently brought home their first conference championship</p>
@@ -436,9 +443,7 @@
       </div>
     </div>
   </div>
-.section-watermark {
-  position: relative;
-}
+
 
 .section-watermark::before {
   content: "";
@@ -548,7 +553,6 @@
 
   <script>
     // small helpers
-    document.getElementById('year').textContent = new Date().getFullYear();
 
     function openPlayer(name, position, number, bio){
       const html = `\n        <h2 style="margin-top:0">${name} <small style='color:var(--muted);font-size:14px'>${number}</small></h2>\n        <div style='color:var(--muted)'>${position}</div>\n        <p style='margin-top:12px'>${bio}</p>\n      `;
@@ -628,6 +632,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 </script>
 </body>
 </html>
+
 
 
 
