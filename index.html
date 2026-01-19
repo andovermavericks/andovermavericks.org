@@ -35,8 +35,6 @@
     }
     .container{max-width:var(--max);margin:0 auto;padding:24px}
 
-}
-
     /* header */
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;align-items:center;gap:12px}
@@ -47,13 +45,17 @@
     .cta{background:var(--accent);color:#0b1220;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
 
     /* hero */
-    {display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin:28px 0}
-    -card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:28px;border-radius:14px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
     h1{font-size:clamp(28px,4.5vw,40px);margin:0 0 8px}
     p.lead{color:var(--muted);margin-top:0}
     .stats{display:flex;gap:12px;margin-top:18px}
     .stat{background:var(--glass);padding:10px 12px;border-radius:10px;text-align:center;min-width:84px}
     .stat strong{display:block;font-size:18px}
+.hero-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
 
     /* roster + schedule */
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
@@ -71,12 +73,13 @@
     footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
 
     /* responsive */
-    @media (max-width:900px){
-      {grid-template-columns:1fr}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      nav{display:none}
-      .mobile-nav{display:flex}
-    }
+  @media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  nav{display:none}
+  .mobile-nav{display:flex}
+}
+
 
     /* mobile nav button */
     .mobile-nav{display:none}
@@ -499,9 +502,6 @@
   </div>
 
 </div>
-<section class="section-watermark">
-  <!-- content -->
-</section>
 
 </section>
 
@@ -609,6 +609,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 </script>
 </body>
 </html>
+
 
 
 
