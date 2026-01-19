@@ -47,6 +47,12 @@
   background-position: right center;
   min-height: 85vh;
 }
+@media (max-width: 900px) {
+  .hero {
+    background-size: 90%;
+    background-position: center bottom;
+  }
+}
 
     /* header */
     header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
@@ -430,6 +436,19 @@
       </div>
     </div>
   </div>
+.section-watermark {
+  position: relative;
+}
+
+.section-watermark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/assets/bull-head.png") no-repeat center;
+  background-size: 50%;
+  opacity: 0.06;
+  pointer-events: none;
+}
 
   <div class="acc-item">
     <button class="acc-btn" type="button">
@@ -498,6 +517,9 @@
   </div>
 
 </div>
+<section class="section-watermark">
+  <!-- content -->
+</section>
 
 </section>
 
@@ -606,6 +628,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 </script>
 </body>
 </html>
+
 
 
 
