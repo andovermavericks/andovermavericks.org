@@ -156,12 +156,6 @@
   background: radial-gradient(circle at 70% 50%, rgba(255,255,255,0.04), rgba(0,0,0,0.35));
   border-radius: 16px;              /* optional: makes hero feel “contained” */
 }
-
-
-  background-repeat: no-repeat;
-  background-size: 60%;
-  background-position: right center;
-}
     .hero > aside{
   justify-self: end;
 }
@@ -281,7 +275,7 @@ body::before{
           </div>
         </div>
 
-        <aside class="card">
+        <aside class="card" id="schedule">
           <h2 style="margin-top:0">Schedule</h2>
           <p style="color:#ffffff;font-weight:600">Below is our Gamechanger, there you will see our live game and practice schedule.</p>
           <div id="gc-schedule-widget-3iy5"></div>
@@ -643,8 +637,16 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 });
 
 </script>
+  <script>
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.addEventListener('load', () => {
+    if (!location.hash) window.scrollTo(0, 0);
+  });
+</script>
+
 </body>
 </html>
+
 
 
 
