@@ -202,13 +202,16 @@ body::before{
 .hero-shot{
   width: 100%;
   height: auto;
-  max-height: 560px;      /* makes it taller for a vertical action shot */
-  object-fit: contain;    /* IMPORTANT: prevents cropping */
+  max-height: 560px;
+  object-fit: contain;
   display: block;
   margin: 0 auto 14px auto;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.08);
+border: none;
+box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
 }
+
 
 
 .team-photo{
@@ -712,6 +715,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 
 </body>
 </html>
+
 
 
 
