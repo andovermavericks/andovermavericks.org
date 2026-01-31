@@ -198,6 +198,21 @@ body::before{
     background-size: 110vw;
   }
 }
+/* Photo styles */
+.hero-shot{
+  width:100%;
+  max-height:320px;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.08);
+  margin-bottom:14px;
+}
+
+.team-photo{
+  width:100%;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.08);
+}
 
 
   </style>
@@ -231,6 +246,8 @@ body::before{
       <section class="hero">
 
         <div class="hero-card">
+          <img src="/catch.png" alt="Mavericks player making a sky-high catch" class="hero-shot" />
+
           <h1>Dominate the field. Have fun. Build together.</h1>
           <p class="lead"> The Andover Mavericks are a competitive, spirited team from the North Suburban Conference. They are currently ranked 21st in the nation, and recently brought home their first conference championship</p>
 
@@ -281,6 +298,13 @@ body::before{
           <div id="gc-schedule-widget-3iy5"></div>
         </aside>
       </section>
+<section class="card" style="margin-top:18px">
+  <h3 style="margin-top:0">Team Snapshot</h3>
+  <img src="/jvteam.jpg" alt="Andover Mavericks team photo" class="team-photo" />
+  <p style="color:var(--muted);margin-top:10px">
+    A snapshot of the Mavericks—players, coaches, and the community we’re building together.
+  </p>
+</section>
 
       <section style="margin-top:18px" id="join" class="card">
         <h3>Join / Contact</h3>
@@ -684,6 +708,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 
 </body>
 </html>
+
 
 
 
