@@ -368,8 +368,7 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 <section id="new-families" class="card" style="margin-top:18px">
 <div class="accordion" id="newFamiliesAccordion">
 
-  <div class="acc-item" id="acc-registration">
-
+ <div class="acc-item">
     <button class="acc-btn" type="button">
       <span>Season at a Glance <span class="acc-meta">Dates • rhythm • location</span></span>
       <span class="acc-icon">+</span>
@@ -518,7 +517,8 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     </div>
   </div>
 
- <div class="acc-item">
+<div class="acc-item" id="acc-registration">
+
   <button class="acc-btn" type="button">
     <span>Registration (Two Required Steps) <span class="acc-meta">Mavericks + MNU</span></span>
     <span class="acc-icon">+</span>
@@ -768,7 +768,6 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 </script>
 <script>
 function openAccordionById(itemId){
-
   const item = document.getElementById(itemId);
   if(!item) return;
 
@@ -777,23 +776,29 @@ function openAccordionById(itemId){
     section.scrollIntoView({ behavior:'smooth', block:'start' });
   }
 
-  // Close all accordions
-  document.querySelectorAll('.acc-item').forEach(acc=>{
-    acc.classList.remove('open');
-    const icon = acc.querySelector('.acc-icon');
-    if(icon) icon.textContent = '+';
+  // Close all (ONLY within New Families accordion)
+  document.querySelectorAll('#newFamiliesAccordion .acc-item.open').forEach(openItem=>{
+    openItem.classList.remove('open');
+    const openPanel = openItem.querySelector('.acc-panel');
+    const openIcon = openItem.querySelector('.acc-icon');
+    if(openPanel) openPanel.style.maxHeight = '0px';
+    if(openIcon) openIcon.textContent = '+';
   });
 
-  // Open selected accordion
-  item.classList.add('open');
+  // Open selected
+  const panel = item.querySelector('.acc-panel');
   const icon = item.querySelector('.acc-icon');
-  if(icon) icon.textContent = '−';
 
-  // 🔥 STOP BUTTON PULSE AFTER CLICK
+  item.classList.add('open');
+  if(panel) panel.style.maxHeight = panel.scrollHeight + 'px';
+  if(icon) icon.textContent = '–';
+
+  // Stop pulse after click
   const btn = document.getElementById('registerNowBtn');
   if(btn) btn.classList.remove('pulse-btn');
 }
 </script>
+
 
 
 
@@ -852,6 +857,7 @@ function openAccordionById(itemId){
 
 </body>
 </html>
+
 
 
 
