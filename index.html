@@ -219,6 +219,27 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   border-radius:12px;
   border:1px solid rgba(255,255,255,0.08);
 }
+/* Utility: hide elements when needed */
+.is-hidden { display: none !important; }
+/* ===== Mavericks Primary Button ===== */
+.primary-btn {
+  display:inline-block;
+  background:#ff7a00;
+  color:#ffffff;
+  padding:10px 16px;
+  border-radius:6px;
+  font-weight:700;
+  text-decoration:none;
+  margin:8px 0;
+  transition: all .2s ease;
+  box-shadow: 0 4px 12px rgba(255,122,0,.25);
+}
+
+.primary-btn:hover {
+  background:#ff8f1f;
+  transform:translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255,122,0,.35);
+}
 
 
   </style>
@@ -265,39 +286,21 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
             <div class="stat"><strong id="seconds">0</strong><small>Seconds</small></div>
           </div>
           
-          <script>
-            function updateCountdown() {
-              const targetDate = new Date('2026-02-09').getTime();
-              const now = new Date().getTime();
-              const diff = targetDate - now;
-              
-              if (diff <= 0) {
-                document.getElementById('days').textContent = '0';
-                document.getElementById('hours').textContent = '0';
-                document.getElementById('minutes').textContent = '0';
-                document.getElementById('seconds').textContent = '0';
-                return;
-              }
-              
-              const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-              const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-              const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-              
-              document.getElementById('days').textContent = days;
-              document.getElementById('hours').textContent = hours;
-              document.getElementById('minutes').textContent = minutes;
-              document.getElementById('seconds').textContent = seconds;
-            }
-            updateCountdown();
-            setInterval(updateCountdown, 1000); // Update every second
-          </script>
+<!-- COUNTDOWN (toggle on/off via JS) -->
+<div id="countdownBlock">
+  <p class="lead" style="margin-top:28px;margin-bottom:12px;font-size:24px;font-weight:800;color:#ffffff">
+    Countdown to Next Season
+  </p>
 
-          <div style="margin-top:18px;display:flex;gap:8px">
-            <a class="cta" href="#schedule">Next Game</a>
-          </div>
-        </div>
+  <div class="stats">
+    <div class="stat"><strong id="days">0</strong><small>Days</small></div>
+    <div class="stat"><strong id="hours">0</strong><small>Hours</small></div>
+    <div class="stat"><strong id="minutes">0</strong><small>Minutes</small></div>
+    <div class="stat"><strong id="seconds">0</strong><small>Seconds</small></div>
+  </div>
+</div>
 
+    
         <aside class="card" id="schedule">
           <h2 style="margin-top:0">Schedule</h2>
           <p style="color:#ffffff;font-weight:600">Below is our Gamechanger, there you will see our live game and practice schedule.</p>
@@ -501,18 +504,22 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 
       <p><strong>Players must register with both the Mavericks program and Minnesota Ultimate (MNU).</strong></p>
 
-      <p>
-        <strong>1) Mavericks Registration</strong>
-        —
-        <a
-          href="https://form.jotform.com/240285611191148"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="navlink"
-        >
-          complete Mavericks registration form
-        </a>
-      </p>
+      <p><strong>1) Mavericks Registration</strong></p>
+
+<p><strong>1) Mavericks Registration</strong></p>
+
+<p>
+  <a
+    href="https://form.jotform.com/240285611191148"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="primary-btn"
+  >
+    👉 Complete Mavericks Registration Form
+  </a>
+</p>
+
+
 
       <ul>
         <li>Mavericks registration form – Due TBD</li>
@@ -526,25 +533,17 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
       </p>
 
       <!-- More noticeable MNU button-style link -->
-      <p>
-        <a
-          href="https://minnesotaultimate.org/hsl-information"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="
-            display:inline-block;
-            background:#ff7a00;
-            color:#fff;
-            padding:10px 16px;
-            border-radius:6px;
-            font-weight:600;
-            text-decoration:none;
-            margin:8px 0;
-          "
-        >
-          👉 Register with Minnesota Ultimate (MNU)
-        </a>
-      </p>
+<p>
+  <a
+    href="https://minnesotaultimate.org/hsl-information"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="primary-btn"
+  >
+    👉 Register with Minnesota Ultimate (MNU)
+  </a>
+</p>
+
 
       <ul>
         <li>Boys: Select Andover (Open) → Open Division</li>
@@ -750,9 +749,56 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
     if (!location.hash) window.scrollTo(0, 0);
   });
 </script>
+<script>
+  /***********************
+   * COUNTDOWN TOGGLE
+   * Set to true when you have a real date to count down to.
+   ***********************/
+  const SHOW_COUNTDOWN = false;            // <-- flip to true when ready
+  const COUNTDOWN_TARGET = '2026-02-09';   // <-- update when needed (YYYY-MM-DD)
+
+  (function initCountdown(){
+    const block = document.getElementById('countdownBlock');
+    if (!block) return;
+
+    // If you want it hidden right now, hide and stop.
+    if (!SHOW_COUNTDOWN) {
+      block.classList.add('is-hidden');
+      return;
+    }
+
+    // If countdown is enabled, run it.
+    const targetDate = new Date(COUNTDOWN_TARGET + 'T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = targetDate - now;
+
+      // If the date passed (or invalid), hide the whole block.
+      if (!isFinite(diff) || diff <= 0) {
+        block.classList.add('is-hidden');
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
 
 </body>
 </html>
+
 
 
 
