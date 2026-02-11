@@ -42,7 +42,22 @@
     nav{display:flex;gap:18px;align-items:center;flex:1;justify-content:center}
     a.navlink{color:var(--muted);text-decoration:none;font-weight:600}
     a.navlink:hover{color:var(--accent)}
-    .cta{background:var(--accent);color:#0b1220;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+    .cta{
+  background:#ff7a00;
+  color:#ffffff;
+  padding:8px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  transition: all .2s ease;
+  box-shadow: 0 4px 12px rgba(255,122,0,.25);
+}
+.cta:hover{
+  background:#ff8f1f;
+  transform:translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255,122,0,.35);
+}
+
 
     /* hero */
     h1{font-size:clamp(28px,4.5vw,40px);margin:0 0 8px}
@@ -264,9 +279,15 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 </nav>
 
       <div style="display:flex;gap:12px;align-items:center">
-        <a class="cta" href="#join">Join Us</a>
-        <div class="mobile-nav"><button class="menu-btn" id="menuToggle">☰</button></div>
-      </div>
+  <a class="cta" href="#join">Join Us</a>
+
+  <a class="cta" href="#new-families" onclick="openAccordionById('acc-registration'); return false;">
+    Register Now
+  </a>
+
+  <div class="mobile-nav"><button class="menu-btn" id="menuToggle">☰</button></div>
+</div>
+
     </header>
 
     <main id="home">
@@ -336,7 +357,8 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 <section id="new-families" class="card" style="margin-top:18px">
 <div class="accordion" id="newFamiliesAccordion">
 
-  <div class="acc-item">
+  <div class="acc-item" id="acc-registration">
+
     <button class="acc-btn" type="button">
       <span>Season at a Glance <span class="acc-meta">Dates • rhythm • location</span></span>
       <span class="acc-icon">+</span>
@@ -734,6 +756,21 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 
 </script>
   <script>
+  function openAccordionById(itemId){
+    const item = document.getElementById(itemId);
+    if(!item) return;
+
+    // Scroll to the New Families section first (so users see it open)
+    const section = document.getElementById('new-families');
+    if(section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Open the accordion item (uses your existing click handler)
+    const btn = item.querySelector('.acc-btn');
+    if(btn) btn.click();
+  }
+</script>
+
+  <script>
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.addEventListener('load', () => {
     if (!location.hash) window.scrollTo(0, 0);
@@ -788,6 +825,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 
 </body>
 </html>
+
 
 
 
