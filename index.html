@@ -249,6 +249,16 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   transition: all .2s ease;
   box-shadow: 0 4px 12px rgba(255,122,0,.25);
 }
+/* ===== Mavericks Pulse Animation ===== */
+.pulse-btn {
+  animation: mavericksPulse 2s infinite;
+}
+
+@keyframes mavericksPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,122,0,.6); }
+  70%  { box-shadow: 0 0 0 12px rgba(255,122,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,122,0,0); }
+}
 
 .primary-btn:hover {
   background:#ff8f1f;
@@ -281,9 +291,10 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
       <div style="display:flex;gap:12px;align-items:center">
   <a class="cta" href="#join">Join Us</a>
 
-  <a class="cta" href="#new-families" onclick="openAccordionById('acc-registration'); return false;">
-    Register Now
-  </a>
+ <a id="registerNowBtn" class="cta pulse-btn" href="#" onclick="openAccordionById('acc-registration'); return false;">
+  Register Now
+</a>
+
 
   <div class="mobile-nav"><button class="menu-btn" id="menuToggle">☰</button></div>
 </div>
@@ -755,20 +766,36 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 });
 
 </script>
-  <script>
-  function openAccordionById(itemId){
-    const item = document.getElementById(itemId);
-    if(!item) return;
+<script>
+function openAccordionById(itemId){
 
-    // Scroll to the New Families section first (so users see it open)
-    const section = document.getElementById('new-families');
-    if(section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const item = document.getElementById(itemId);
+  if(!item) return;
 
-    // Open the accordion item (uses your existing click handler)
-    const btn = item.querySelector('.acc-btn');
-    if(btn) btn.click();
+  const section = document.getElementById('new-families');
+  if(section){
+    section.scrollIntoView({ behavior:'smooth', block:'start' });
   }
+
+  // Close all accordions
+  document.querySelectorAll('.acc-item').forEach(acc=>{
+    acc.classList.remove('open');
+    const icon = acc.querySelector('.acc-icon');
+    if(icon) icon.textContent = '+';
+  });
+
+  // Open selected accordion
+  item.classList.add('open');
+  const icon = item.querySelector('.acc-icon');
+  if(icon) icon.textContent = '−';
+
+  // 🔥 STOP BUTTON PULSE AFTER CLICK
+  const btn = document.getElementById('registerNowBtn');
+  if(btn) btn.classList.remove('pulse-btn');
+}
 </script>
+
+
 
   <script>
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -825,6 +852,7 @@ document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
 
 </body>
 </html>
+
 
 
 
