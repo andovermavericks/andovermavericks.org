@@ -323,10 +323,15 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 </div>
 
     
-        <aside class="card" id="schedule">
+      <aside class="card" id="schedule">
           <h2 style="margin-top:0">Schedule</h2>
-          <p style="color:#ffffff;font-weight:600">Below is our Gamechanger, there you will see our live game and practice schedule.</p>
-          <div id="gc-schedule-widget-3iy5"></div>
+          <p style="color:#ffffff;font-weight:600">Below is our GameChanger schedule — select your team to see live games and practices.</p>
+          <h4 style="margin:16px 0 6px;color:var(--accent)">Varsity</h4>
+          <div id="gc-schedule-widget-ckfw"></div>
+          <h4 style="margin:16px 0 6px;color:var(--accent)">JV</h4>
+          <div id="gc-schedule-widget-zzkw"></div>
+          <h4 style="margin:16px 0 6px;color:var(--accent)">Girls</h4>
+          <div id="gc-schedule-widget-am6e"></div>
         </aside>
       </section>
 <section class="card" style="margin-top:18px">
@@ -730,13 +735,23 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     // close modal on ESC
     document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
   </script>
-  <script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
+ <script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
 <script>
   window.GC.team.schedule.init({
-    target: "#gc-schedule-widget-3iy5",
-    widgetId: "9f6a5098-0c3c-4f31-8119-e507830efbf8",
+    target: "#gc-schedule-widget-ckfw",
+    widgetId: "99f20097-4823-4632-b34a-3855d7d3e4f0",
     maxVerticalGamesVisible: 4,
-  })
+  });
+  window.GC.team.schedule.init({
+    target: "#gc-schedule-widget-zzkw",
+    widgetId: "2b71c5f8-3ef3-44fa-98cd-5d78b8a09bbf",
+    maxVerticalGamesVisible: 4,
+  });
+  window.GC.team.schedule.init({
+    target: "#gc-schedule-widget-am6e",
+    widgetId: "f851bd34-a982-4e41-b790-96037710ae36",
+    maxVerticalGamesVisible: 4,
+  });
   // Accordion behavior (New Families)
 document.querySelectorAll('#newFamiliesAccordion .acc-item').forEach((item) => {
   const btn = item.querySelector('.acc-btn');
