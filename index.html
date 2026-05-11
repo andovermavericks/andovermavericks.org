@@ -90,18 +90,17 @@
     /* footer */
     footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
 
+    /* mobile nav button */
+    .mobile-nav{display:none}
+    .menu-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;color:var(--muted)}
+
     /* responsive */
   @media (max-width:900px){
   .hero{grid-template-columns:1fr}
   .gallery{grid-template-columns:repeat(2,1fr)}
   nav{display:none}
-  .mobile-nav{display:flex}
+  .mobile-nav{display:flex !important}
 }
-
-
-    /* mobile nav button */
-    .mobile-nav{display:none}
-    .menu-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;color:var(--muted)}
 
     /* simple modal */
     .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);padding:20px}
@@ -285,16 +284,10 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   <a class="navlink" href="#home">Home</a>
   <a class="navlink" href="#schedule">Schedule</a>
   <a class="navlink" href="#new-families">New Families</a>
-  <a class="navlink" href="/champions.html">Champions</a>
   <a class="navlink" href="#contact">Contact</a>
 </nav>
 
       <div style="display:flex;gap:12px;align-items:center;flex-shrink:0">
- <a id="registerNowBtn" class="cta pulse-btn" href="#" onclick="openAccordionById('acc-registration'); return false;">
-  Register Now
-</a>
-
-
   <div class="mobile-nav"><button class="menu-btn" id="menuToggle">☰</button></div>
 </div>
 
@@ -872,53 +865,6 @@ function openAccordionById(itemId){
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
