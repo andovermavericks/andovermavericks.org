@@ -22,7 +22,8 @@
       color-scheme: dark;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html{height:100%;scroll-behavior:auto}
+    body{height:100%}
     body{
       font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       margin:0;
@@ -284,7 +285,7 @@ box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   <a class="navlink" href="#home">Home</a>
   <a class="navlink" href="#schedule">Schedule</a>
   <a class="navlink" href="#new-families">New Families</a>
-  <a class="navlink" href="/champions.html">Champions</a>
+   <a class="navlink" href="/champions.html">Champions</a>
   <a class="navlink" href="#contact">Contact</a>
 </nav>
 
@@ -814,7 +815,7 @@ function openAccordionById(itemId){
   <script>
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.addEventListener('load', () => {
-    if (!location.hash) window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 0);
   });
 </script>
 <script>
@@ -866,8 +867,6 @@ function openAccordionById(itemId){
 
 </body>
 </html>
-
-
 
 
 
