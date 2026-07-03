@@ -236,6 +236,58 @@
     .place-other { color: var(--muted); font-weight: 600; }
     .no-place    { color: rgba(255,255,255,0.12); }
 
+    .place-note {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    /* Honors */
+    .honors {
+      margin-top: 12px;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 16px 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .honors-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 15px;
+      letter-spacing: 3px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .honors-row {
+      display: flex;
+      gap: 12px;
+      padding: 6px 0;
+      font-size: 14px;
+      align-items: baseline;
+    }
+
+    .honors-label {
+      flex: 0 0 210px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .honors-names { color: #e6eef6; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      .honors-row { flex-direction: column; gap: 2px; }
+      .honors-label { flex: none; }
+    }
+
     /* Footer */
     footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
 
@@ -326,10 +378,37 @@
             <td class="event-label">Hopkins Hustle</td>
             <td><span class="place-2">🥈 2nd</span></td>
             <td><span class="place-1">🥇 1st</span></td>
-            <td><span class="no-place">—</span></td>
+            <td><span class="place-other">7th</span></td>
+          </tr>
+          <tr>
+            <td class="event-label">North Suburban Conference</td>
+            <td><span class="place-1">🥇 1st</span></td>
+            <td><span class="place-other">5th</span></td>
+            <td><span class="place-1">🥇 1st</span></td>
+          </tr>
+          <tr>
+            <td class="event-label">State Championship</td>
+            <td><span class="place-1">🥇 1st</span></td>
+            <td><span class="place-other">10th<span class="place-note">D2</span></span></td>
+            <td><span class="place-other">7th</span></td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="honors">
+      <div class="honors-title">2026 Season Honors</div>
+      <div class="honors-row">
+        <div class="honors-label">All-State</div>
+        <div class="honors-names">Paul Hoffman</div>
+      </div>
+      <div class="honors-row">
+        <div class="honors-label">All-Conference</div>
+        <div class="honors-names">Paul Hoffman, Kemberlie Behnke, Jacob Ketterling, Andrew Hoffman</div>
+      </div>
+      <div class="honors-row">
+        <div class="honors-label">Conference Rookie of the Year</div>
+        <div class="honors-names">Ethan Moore</div>
+      </div>
     </div>
   </div>
 
